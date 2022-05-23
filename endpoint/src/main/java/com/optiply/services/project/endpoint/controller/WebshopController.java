@@ -21,7 +21,6 @@ import java.util.List;
 @Controller("/webshops")
 public class WebshopController {
 
-
     private final WebshopService webshopService;
 
     public WebshopController(WebshopService webshopService) {
