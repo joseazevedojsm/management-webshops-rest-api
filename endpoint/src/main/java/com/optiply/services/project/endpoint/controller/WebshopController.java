@@ -66,7 +66,7 @@ public class WebshopController {
                 .switchIfEmpty(Mono.just(HttpResponse.notFound()))
                 .onErrorReturn(HttpResponse.serverError());
 
-    };
+    }
 
     @Operation(summary = "Creates a new webshop")
     @ApiResponses({
@@ -134,7 +134,7 @@ public class WebshopController {
 
         return Mono.from(webshop)
                 .map(response -> {
-                    if(response==true)
+                    if(response)
                         return HttpResponse.noContent().body(true);
                     else
                         return HttpResponse.notFound().body(false);
@@ -167,7 +167,7 @@ public class WebshopController {
     }
 }
 
-
+// Old implementations
 //
 //return Flux.from(webshops)
 //        .collectSortedList(Comparator.comparing(Webshop::getId)) //collectList() tambem funciona
