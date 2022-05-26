@@ -11,6 +11,7 @@ plugins {
     id("io.micronaut.application") version "3.2.2"
     id("org.flywaydb.flyway") version "8.3.0"
     id("io.micronaut.aot") version "3.2.2"
+    id ("com.avast.gradle.docker-compose") version "0.16.4"
 }
 
 group = "com.optiply.services.project.endpoint"
@@ -135,4 +136,12 @@ flyway {
     password = System.env.DATASOURCE_PASSWORD ? System.env.DATASOURCE_PASSWORD : 'postgres'
     schemas = ['public']
     locations = ["classpath:db/migration"]
+}
+
+
+dockerCompose {
+    useComposeFiles = ['./docker-compose.yml']
+    stopContainers = true
+    // do not wait for debug port
+    tcpPortsToIgnoreWhenWaiting = [5005]
 }

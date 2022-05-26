@@ -1,9 +1,7 @@
 package com.optiply.services.project.endpoint;
 
-import com.optiply.infrastructure.data.jooq.repositories.tables.pojos.WebshopConfg;
 import com.optiply.services.project.endpoint.controller.WebshopConfgController;
 import com.optiply.services.project.endpoint.controller.WebshopController;
-import com.optiply.services.project.endpoint.service.WebshopService;
 import io.micronaut.http.HttpResponse;
 import io.micronaut.http.client.annotation.Client;
 import io.micronaut.test.annotation.MockBean;
