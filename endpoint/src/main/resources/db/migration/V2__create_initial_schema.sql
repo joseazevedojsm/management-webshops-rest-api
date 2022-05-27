@@ -16,7 +16,7 @@ create table webshop
 );
 
 alter table webshop
-    owner to postgres;
+    owner to admin;
 
 create unique index webshop_handle_uindex
     on webshop (handle);
@@ -31,7 +31,7 @@ create function trigger_set_timestamp() returns trigger
         END;
         $$;
 
-alter function trigger_set_timestamp() owner to postgres;
+alter function trigger_set_timestamp() owner to admin;
 
 create trigger set_timestamp
     before update
@@ -55,7 +55,7 @@ create table webshop_confg
 );
 
 alter table webshop_confg
-    owner to postgres;
+    owner to admin;
 
 create unique index webshop_confg_fk_webshop_uindex
     on webshop_confg (fk_webshop);

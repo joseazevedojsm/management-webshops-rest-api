@@ -57,10 +57,10 @@ flyway:
       enabled: true
 datasources:
   default:
-    password: ${DATASOURCE_PASSWORD:postgres}
+    password: ${DATASOURCE_PASSWORD:admin1234}
     driverClassName: org.postgresql.Driver
-    url: ${DATASOURCE_URL:`jdbc:postgresql://localhost:5432/webshopsdb2`}
-    username: ${DATASOURCE_USERNAME:postgres}
+    url: ${DATASOURCE_URL:`jdbc:postgresql://localhost:5432/webshopsdb`}
+    username: ${DATASOURCE_USERNAME:admin}
     schema-generate: NONE
     dialect: POSTGRES
     pool-name: default-pool
@@ -73,9 +73,9 @@ datasources:
 r2dbc:
   datasources:
     default:
-      password: ${R2DBC_DATASOURCE_PASSWORD:postgres}
-      url: ${R2DBC_DATASOURCE_URL:`r2dbc:postgresql://localhost:5432/webshopsdb2`}
-      username: ${R2DBC_DATASOURCE_USERNAME:postgres}
+      password: ${R2DBC_DATASOURCE_PASSWORD:admin1234}
+      url: ${R2DBC_DATASOURCE_URL:`r2dbc:postgresql://localhost:5432/webshopsdb`}
+      username: ${R2DBC_DATASOURCE_USERNAME:admin}
       schema-generate: NONE
       dialect: POSTGRES
       options:

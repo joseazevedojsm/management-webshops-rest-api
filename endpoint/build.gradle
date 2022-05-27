@@ -1,6 +1,6 @@
 buildscript {
     ext {
-        jooqVersion = "3.16.4"
+        jooqVersion = "3.16.6"
     }
 }
 
@@ -11,7 +11,6 @@ plugins {
     id("io.micronaut.application") version "3.2.2"
     id("org.flywaydb.flyway") version "8.3.0"
     id("io.micronaut.aot") version "3.2.2"
-    id ("com.avast.gradle.docker-compose") version "0.16.4"
 }
 
 group = "com.optiply.services.project.endpoint"
@@ -79,7 +78,7 @@ dependencies {
     implementation("io.micronaut:micronaut-validation")
     implementation("io.micronaut.micrometer:micronaut-micrometer-core")
     implementation("io.micronaut.micrometer:micronaut-micrometer-registry-prometheus")
-    implementation("io.swagger.core.v3:swagger-annotations:2.1.7")
+    implementation("io.swagger.core.v3:swagger-annotations:2.2.0")
 
     //implementation("javax.annotation:javax.annotation-api")
 
@@ -131,17 +130,11 @@ plugins.withType(JacocoPlugin) {
 }
 
 flyway {
-    url = System.env.DATASOURCE_URL ? System.env.DATASOURCE_URL : 'jdbc:postgresql://localhost:5432/webshopsdb2'
-    user = System.env.DATASOURCE_USERNAME ? System.env.DATASOURCE_USERNAME : 'postgres'
-    password = System.env.DATASOURCE_PASSWORD ? System.env.DATASOURCE_PASSWORD : 'postgres'
+    url = System.env.DATASOURCE_URL ? System.env.DATASOURCE_URL : 'jdbc:postgresql://localhost:5432/webshopsdb'
+    user = System.env.DATASOURCE_USERNAME ? System.env.DATASOURCE_USERNAME : 'admin'
+    password = System.env.DATASOURCE_PASSWORD ? System.env.DATASOURCE_PASSWORD : 'admin1234'
     schemas = ['public']
     locations = ["classpath:db/migration"]
 }
 
 
-dockerCompose {
-    useComposeFiles = ['./docker-compose.yml']
-    stopContainers = true
-    // do not wait for debug port
-    tcpPortsToIgnoreWhenWaiting = [5005]
-}
